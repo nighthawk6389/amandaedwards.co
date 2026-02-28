@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { PageTransition } from "@/components/PageTransition";
 import { defaultMetadata, personStructuredData, websiteStructuredData } from "@/lib/metadata";
 
 export const metadata: Metadata = defaultMetadata;
@@ -35,8 +36,13 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased font-[family-name:var(--font-body)]">
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main id="main-content" className="min-h-screen" role="main">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
       </body>
     </html>

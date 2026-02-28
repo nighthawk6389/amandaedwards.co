@@ -45,6 +45,7 @@ export function NewsletterSignup({ variant = "standalone" }: NewsletterSignupPro
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your@email.com"
               required
+              aria-label="Email address for newsletter"
               className="flex-1 px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:border-coral focus:ring-2 focus:ring-coral/20 text-sm"
             />
             <button
@@ -94,6 +95,7 @@ export function NewsletterSignup({ variant = "standalone" }: NewsletterSignupPro
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
             required
+            aria-label="Email address for newsletter"
             className="flex-1 px-5 py-3 rounded-full border-2 border-coral/20 focus:border-coral focus:outline-none focus:ring-4 focus:ring-coral/10 text-charcoal text-sm"
           />
           <button

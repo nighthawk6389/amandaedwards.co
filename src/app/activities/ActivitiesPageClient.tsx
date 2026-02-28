@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
@@ -195,12 +196,12 @@ export function ActivitiesPageClient() {
                   time, or as a fun companion to reading the books together.
                   No supplies needed beyond paper and crayons!
                 </p>
-                <a
+                <Link
                   href="/blog/5-ways-to-spark-imagination"
                   className="inline-flex items-center gap-2 text-coral font-bold hover:text-coral-dark transition-colors"
                 >
                   More activity ideas <span>→</span>
-                </a>
+                </Link>
               </div>
             </AnimatedSection>
           </div>

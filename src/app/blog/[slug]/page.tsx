@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { blogPosts, getBlogPostBySlug } from "@/data/blogPosts";
+import { generateBreadcrumbStructuredData } from "@/lib/metadata";
 import { BlogPostClient } from "./BlogPostClient";
 
 interface BlogPostPageProps {
@@ -49,11 +50,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     keywords: post.tags.join(", "),
   };
 
+  const breadcrumbData = generateBreadcrumbStructuredData([
+    { name: "Home", url: "https://amandaedwards.co" },
+    { name: "Blog", url: "https://amandaedwards.co/blog" },
+    { name: post.title, url: `https://amandaedwards.co/blog/${post.slug}` },
+  ]);
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
       />
       <BlogPostClient post={post} />
     </>

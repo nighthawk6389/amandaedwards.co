@@ -11,6 +11,7 @@ const footerLinks = [
       { label: "Books", href: "/books" },
       { label: "About Amanda", href: "/about" },
       { label: "Fun Stuff", href: "/activities" },
+      { label: "Events", href: "/events" },
       { label: "Blog", href: "/blog" },
     ],
   },
@@ -28,7 +29,7 @@ const footerLinks = [
     links: [
       { label: "Reading Tips", href: "/blog/why-reading-aloud-matters" },
       { label: "Activity Downloads", href: "/activities" },
-      { label: "School Visits", href: "/contact" },
+      { label: "School Visits", href: "/events" },
       { label: "Bulk Orders", href: "/contact" },
     ],
   },
@@ -36,7 +37,7 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative bg-charcoal text-white overflow-hidden">
+    <footer className="relative bg-charcoal text-white overflow-hidden" role="contentinfo" aria-label="Site footer">
       {/* Wavy top border */}
       <div className="absolute top-0 left-0 right-0 -translate-y-[99%]">
         <svg

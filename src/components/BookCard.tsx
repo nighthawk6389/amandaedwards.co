@@ -74,7 +74,7 @@ export function BookCard({ book, index = 0 }: BookCardProps) {
 
             {/* Stars */}
             <div className="flex items-center gap-2">
-              <div className="flex gap-0.5 text-sunny-dark text-sm">
+              <div className="flex gap-0.5 text-sunny-dark text-sm" aria-label="5 out of 5 stars" role="img">
                 {"★".repeat(5)}
               </div>
               <span className="text-xs text-charcoal-light">

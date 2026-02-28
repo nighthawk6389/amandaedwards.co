@@ -4,6 +4,7 @@ export interface Book {
   subtitle?: string;
   description: string;
   longDescription: string;
+  sampleExcerpt?: string;
   ageRange: string;
   pages: number;
   isbn: string;
@@ -30,6 +31,7 @@ export const books: Book[] = [
     subtitle: "A Bedtime Adventure",
     description: "Join Whiskers the curious kitten on a magical nighttime journey through a garden where flowers glow and fireflies tell stories.",
     longDescription: "When the moon rises over Willow Lane, something magical happens in Mrs. Henderson's garden. Whiskers, a tiny orange kitten with enormous curious eyes, discovers a secret world of glowing flowers, dancing fireflies, and friendly creatures who only come out at night. Through gentle rhymes and enchanting illustrations, children learn about bravery, friendship, and the beauty of the nighttime world. Perfect for bedtime reading, this story wraps little ones in a cozy blanket of wonder as they drift off to sleep.",
+    sampleExcerpt: "When the moon peeks up and the stars say hi,\nLittle Whiskers stretches with a curious eye.\nThrough the garden gate where the moonbeams play,\nA secret world wakes at the end of the day.\n\nThe roses glow pink, the daisies glow blue,\nAnd the fireflies whisper, \"We've been waiting for you!\"",
     ageRange: "2-5",
     pages: 32,
     isbn: "978-1-234567-01-0",

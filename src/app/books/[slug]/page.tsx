@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { books, getBookBySlug } from "@/data/books";
-import { generateBookStructuredData } from "@/lib/metadata";
+import { generateBookStructuredData, generateBreadcrumbStructuredData } from "@/lib/metadata";
 import { BookDetailClient } from "./BookDetailClient";
 
 interface BookPageProps {
@@ -34,12 +34,21 @@ export default async function BookPage({ params }: BookPageProps) {
   if (!book) notFound();
 
   const structuredData = generateBookStructuredData(book);
+  const breadcrumbData = generateBreadcrumbStructuredData([
+    { name: "Home", url: "https://amandaedwards.co" },
+    { name: "Books", url: "https://amandaedwards.co/books" },
+    { name: book.title, url: `https://amandaedwards.co/books/${book.slug}` },
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
       />
       <BookDetailClient book={book} />
     </>

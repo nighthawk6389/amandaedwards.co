@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/AnimatedSection";
 
@@ -108,9 +109,9 @@ export function ContactPageClient() {
                       Thanks for reaching out! I&apos;ll get back to you as soon as I
                       can — usually within a few days. In the meantime, check
                       out the latest on the{" "}
-                      <a href="/blog" className="text-coral font-bold hover:underline">
+                      <Link href="/blog" className="text-coral font-bold hover:underline">
                         blog
-                      </a>
+                      </Link>
                       !
                     </p>
                   </div>

@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/books", label: "Books" },
   { href: "/about", label: "About" },
   { href: "/activities", label: "Fun Stuff" },
+  { href: "/events", label: "Events" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -31,7 +32,7 @@ export function Header() {
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
@@ -76,7 +77,9 @@ export function Header() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden relative w-10 h-10 rounded-full bg-coral/10 flex items-center justify-center"
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             <div className="flex flex-col gap-1.5 w-5">
               <motion.span
@@ -100,10 +103,13 @@ export function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white/95 backdrop-blur-lg border-t border-coral/10 overflow-hidden"
+            role="navigation"
+            aria-label="Mobile navigation"
           >
             <div className="px-4 py-6 space-y-1">
               {navLinks.map((link, i) => (
