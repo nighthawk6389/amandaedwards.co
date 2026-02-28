@@ -66,12 +66,11 @@ test.describe("Blog", () => {
     }) => {
       await page.goto("/blog/why-reading-aloud-matters");
 
-      // Title
+      // Title (h1)
       await expect(
         page.getByRole("heading", {
           name: /Why Reading Aloud to Your Kids Matters/i,
-          level: 1,
-        })
+        }).first()
       ).toBeVisible();
 
       // Excerpt

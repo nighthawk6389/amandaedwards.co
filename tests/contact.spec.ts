@@ -40,20 +40,21 @@ test.describe("Contact Page", () => {
     ];
 
     for (const reason of reasons) {
-      const button = page.getByRole("button", { name: reason });
+      // Button text includes emoji prefix, so use regex
+      const button = page.getByRole("button", { name: new RegExp(reason) });
       await expect(button).toBeVisible();
     }
 
     // Click one reason and verify it gets selected (changes style)
-    const schoolVisitBtn = page.getByRole("button", { name: "School Visit" });
+    const schoolVisitBtn = page.getByRole("button", { name: /School Visit/ });
     await schoolVisitBtn.click();
     // After clicking, the button should have the selected border class
     await expect(schoolVisitBtn).toHaveClass(/border-coral/);
   });
 
   test("form submits and shows success message", async ({ page }) => {
-    // Select a reason
-    await page.getByRole("button", { name: "Fan Mail" }).click();
+    // Select a reason (button text includes emoji prefix)
+    await page.getByRole("button", { name: /Fan Mail/ }).click();
 
     // Fill in the form
     await page.getByLabel(/Your Name/i).fill("Test User");
@@ -75,12 +76,15 @@ test.describe("Contact Page", () => {
   test("social links section shows Instagram, Facebook, TikTok", async ({
     page,
   }) => {
+    // Scope to the main content area to avoid matching footer social links
+    const main = page.locator("main");
+
     await expect(
-      page.getByRole("heading", { name: /Find Me Online/i })
+      main.getByRole("heading", { name: /Find Me Online/i })
     ).toBeVisible();
 
     // Instagram
-    const instagramLink = page.getByRole("link", { name: /Instagram/i });
+    const instagramLink = main.getByRole("link", { name: /Instagram/i });
     await expect(instagramLink).toBeVisible();
     await expect(instagramLink).toHaveAttribute(
       "href",
@@ -88,7 +92,7 @@ test.describe("Contact Page", () => {
     );
 
     // Facebook
-    const facebookLink = page.getByRole("link", { name: /Facebook/i });
+    const facebookLink = main.getByRole("link", { name: /Facebook/i });
     await expect(facebookLink).toBeVisible();
     await expect(facebookLink).toHaveAttribute(
       "href",
@@ -96,7 +100,7 @@ test.describe("Contact Page", () => {
     );
 
     // TikTok
-    const tiktokLink = page.getByRole("link", { name: /TikTok/i });
+    const tiktokLink = main.getByRole("link", { name: /TikTok/i });
     await expect(tiktokLink).toBeVisible();
     await expect(tiktokLink).toHaveAttribute(
       "href",
