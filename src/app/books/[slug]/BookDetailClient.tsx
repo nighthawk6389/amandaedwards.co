@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { BookPeekInside } from "@/components/BookPeekInside";
 import type { Book } from "@/data/books";
 
 interface BookDetailClientProps {
@@ -10,6 +12,11 @@ interface BookDetailClientProps {
 }
 
 export function BookDetailClient({ book }: BookDetailClientProps) {
+  const [showBundle, setShowBundle] = useState(false);
+
+  const averageStars =
+    book.reviews.reduce((acc, r) => acc + r.stars, 0) / book.reviews.length;
+
   return (
     <>
       <section className="pt-28 sm:pt-36 pb-20">
@@ -33,6 +40,7 @@ export function BookDetailClient({ book }: BookDetailClientProps) {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
+              data-cursor="book"
             >
               <div
                 className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl max-w-md mx-auto flex items-center justify-center"
@@ -51,6 +59,20 @@ export function BookDetailClient({ book }: BookDetailClientProps) {
                     <p className="text-white/70 font-semibold">{book.subtitle}</p>
                   )}
                 </div>
+
+                {/* Awards badge overlay */}
+                {book.awards && book.awards.length > 0 && (
+                  <div className="absolute top-3 right-3">
+                    <motion.div
+                      initial={{ scale: 0, rotate: -20 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ delay: 0.5, type: "spring", bounce: 0.5 }}
+                      className="bg-sunny text-charcoal px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1"
+                    >
+                      <span>🏆</span> Award Winner
+                    </motion.div>
+                  </div>
+                )}
               </div>
             </motion.div>
 
@@ -77,15 +99,36 @@ export function BookDetailClient({ book }: BookDetailClientProps) {
                 </p>
               )}
 
-              {/* Stars */}
-              <div className="flex items-center gap-2 mb-6">
-                <div className="flex gap-0.5 text-sunny-dark text-lg">
-                  {"★".repeat(5)}
+              {/* Stars + social proof */}
+              <div className="flex flex-wrap items-center gap-3 mb-6">
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-0.5 text-sunny-dark text-lg">
+                    {"★".repeat(Math.round(averageStars))}
+                  </div>
+                  <span className="text-sm text-charcoal-light">
+                    ({book.reviews.length} reviews)
+                  </span>
                 </div>
-                <span className="text-sm text-charcoal-light">
-                  ({book.reviews.length} reviews)
-                </span>
+                {book.copiesSold && (
+                  <span className="px-3 py-1 bg-teal/10 text-teal-dark rounded-full text-xs font-bold">
+                    {book.copiesSold} copies sold
+                  </span>
+                )}
               </div>
+
+              {/* Awards */}
+              {book.awards && book.awards.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {book.awards.map((award) => (
+                    <div
+                      key={award}
+                      className="flex items-center gap-1.5 px-3 py-1.5 bg-sunny/20 rounded-full text-xs font-bold text-charcoal"
+                    >
+                      <span>🏆</span> {award}
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* Description */}
               <p className="text-charcoal-light leading-relaxed text-lg mb-8">
@@ -126,6 +169,20 @@ export function BookDetailClient({ book }: BookDetailClientProps) {
                 ))}
               </div>
 
+              {/* Social proof snippet near buy buttons */}
+              <div className="bg-cream-dark/60 rounded-2xl p-4 mb-6 flex items-start gap-3">
+                <span className="text-2xl flex-shrink-0">💬</span>
+                <div>
+                  <p className="text-charcoal italic text-sm leading-relaxed">
+                    &ldquo;{book.reviews[0].text}&rdquo;
+                  </p>
+                  <p className="text-xs text-charcoal-light font-semibold mt-1">
+                    — {book.reviews[0].author}
+                    {book.reviews[0].source && `, ${book.reviews[0].source}`}
+                  </p>
+                </div>
+              </div>
+
               {/* Buy Buttons */}
               <div className="space-y-3">
                 <a
@@ -158,54 +215,73 @@ export function BookDetailClient({ book }: BookDetailClientProps) {
                     </a>
                   )}
                 </div>
+
+                {/* Signed Copy Option */}
+                {book.signedCopyAvailable && (
+                  <a
+                    href="/contact"
+                    className="block w-full text-center px-8 py-3.5 bg-gradient-to-r from-purple to-purple-dark text-white font-bold rounded-full hover:shadow-lg hover:shadow-purple/25 transition-all text-sm"
+                  >
+                    Get a Signed Copy — {book.signedCopyPrice} ✍️
+                  </a>
+                )}
+
+                {/* Bundle Option */}
+                {book.bundleAvailable && (
+                  <div className="relative">
+                    <button
+                      onClick={() => setShowBundle(!showBundle)}
+                      className="block w-full text-center px-8 py-3.5 bg-gradient-to-r from-teal to-teal-dark text-white font-bold rounded-full hover:shadow-lg hover:shadow-teal/25 transition-all text-sm"
+                    >
+                      Special Bundle — {book.bundlePrice} 🎁
+                    </button>
+                    {showBundle && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mt-2 p-4 bg-teal/5 border border-teal/20 rounded-2xl"
+                      >
+                        <p className="text-sm text-charcoal-light font-medium mb-2">
+                          {book.bundleDescription}
+                        </p>
+                        <a
+                          href="/contact"
+                          className="text-sm font-bold text-teal-dark hover:text-teal transition-colors"
+                        >
+                          Order this bundle →
+                        </a>
+                      </motion.div>
+                    )}
+                  </div>
+                )}
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Peek Inside Section */}
+      {/* Peek Inside Section — Interactive Book Preview */}
       {book.sampleExcerpt && (
         <section className="py-20 bg-gradient-to-br from-purple/5 to-coral/5">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AnimatedSection className="text-center mb-8">
+            <AnimatedSection className="text-center mb-10">
               <span className="inline-block text-4xl mb-3">📖</span>
               <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold text-charcoal mb-2">
                 Peek Inside
               </h2>
               <p className="text-charcoal-light">
-                Here&apos;s a little taste of the story...
+                Open the book and read a little taste of the story...
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-              <div className="relative bg-white rounded-3xl p-8 sm:p-12 shadow-xl shadow-black/5 max-w-2xl mx-auto">
-                {/* Decorative quote marks */}
-                <span
-                  className="absolute top-4 left-6 text-6xl text-coral/15 font-serif leading-none select-none"
-                  aria-hidden="true"
-                >
-                  &ldquo;
-                </span>
-                <div className="relative">
-                  {book.sampleExcerpt.split("\n").map((line, i) => (
-                    <p
-                      key={i}
-                      className={`font-[family-name:var(--font-display)] text-lg sm:text-xl text-charcoal leading-relaxed ${
-                        line.trim() === "" ? "h-4" : "mb-1"
-                      }`}
-                    >
-                      {line}
-                    </p>
-                  ))}
-                </div>
-                <span
-                  className="absolute bottom-4 right-6 text-6xl text-coral/15 font-serif leading-none select-none"
-                  aria-hidden="true"
-                >
-                  &rdquo;
-                </span>
-              </div>
+              <BookPeekInside
+                excerpt={book.sampleExcerpt}
+                bookTitle={book.title}
+                coverColor={book.coverColor}
+                emoji={book.emoji}
+                accentColor={book.accentColor}
+              />
             </AnimatedSection>
 
             <AnimatedSection delay={0.2} className="text-center mt-8">
@@ -230,6 +306,11 @@ export function BookDetailClient({ book }: BookDetailClientProps) {
             <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold text-charcoal mb-2">
               What Readers Say
             </h2>
+            {book.copiesSold && (
+              <p className="text-charcoal-light text-sm">
+                Loved by {book.copiesSold} readers and counting
+              </p>
+            )}
           </AnimatedSection>
 
           <div className="grid md:grid-cols-3 gap-6">

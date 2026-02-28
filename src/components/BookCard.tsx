@@ -17,7 +17,7 @@ export function BookCard({ book, index = 0 }: BookCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <Link href={`/books/${book.slug}`} className="block group">
+      <Link href={`/books/${book.slug}`} className="block group" data-cursor="book">
         <div className="book-card-hover rounded-3xl overflow-hidden bg-white shadow-lg shadow-black/5">
           {/* Book Cover Placeholder */}
           <div

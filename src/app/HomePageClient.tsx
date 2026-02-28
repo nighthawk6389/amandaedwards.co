@@ -7,6 +7,8 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { BookCard } from "@/components/BookCard";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { FloatingElements } from "@/components/FloatingElements";
+import { ParallaxHero, ParallaxSection } from "@/components/ParallaxSection";
+import { HiddenCharacter } from "@/components/EasterEgg";
 import type { Book } from "@/data/books";
 import type { BlogPost } from "@/data/blogPosts";
 
@@ -45,41 +47,61 @@ export function HomePageClient({ books, blogPosts }: HomePageClientProps) {
     <>
       <FloatingElements />
 
-      {/* Hero Section */}
-      <section className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-coral/5 via-transparent to-purple/5" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="inline-block text-6xl sm:text-7xl mb-6">📚</span>
-            <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal mb-6 leading-tight">
-              Magical Stories for{" "}
-              <span className="gradient-text">Little Dreamers</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-charcoal-light max-w-2xl mx-auto mb-10 leading-relaxed">
-              Hi! I&apos;m Amanda Edwards, and I write children&apos;s books that spark
-              imagination, celebrate uniqueness, and make bedtime the best time of day.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link
-                href="/books"
-                className="px-8 py-4 bg-coral text-white font-bold rounded-full text-lg hover:bg-coral-dark transition-all hover:shadow-lg hover:shadow-coral/25 hover:-translate-y-1"
-              >
-                Explore My Books
-              </Link>
-              <Link
-                href="/about"
-                className="px-8 py-4 bg-white text-charcoal font-bold rounded-full text-lg border-2 border-charcoal/10 hover:border-coral/30 hover:text-coral transition-all hover:-translate-y-1"
-              >
-                Meet Amanda
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* Hero Section with Parallax */}
+      <ParallaxHero>
+        <section className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-coral/5 via-transparent to-purple/5" />
+
+          {/* Hidden easter egg characters in hero */}
+          <HiddenCharacter
+            emoji="🐱"
+            message="You found Whiskers!"
+            position="bottom-8 left-8 sm:left-16"
+            delay={2}
+          />
+          <HiddenCharacter
+            emoji="🦎"
+            message="A philosophical lizard appears!"
+            position="top-32 right-4 sm:right-12"
+            delay={3}
+          />
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Parallax decorative elements */}
+              <ParallaxSection speed={0.2} className="inline-block">
+                <span className="inline-block text-6xl sm:text-7xl mb-6">📚</span>
+              </ParallaxSection>
+              <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal mb-6 leading-tight">
+                Magical Stories for{" "}
+                <span className="gradient-text">Little Dreamers</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-charcoal-light max-w-2xl mx-auto mb-10 leading-relaxed">
+                Hi! I&apos;m Amanda Edwards, and I write children&apos;s books that spark
+                imagination, celebrate uniqueness, and make bedtime the best time of day.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <Link
+                  href="/books"
+                  className="px-8 py-4 bg-coral text-white font-bold rounded-full text-lg hover:bg-coral-dark transition-all hover:shadow-lg hover:shadow-coral/25 hover:-translate-y-1"
+                >
+                  Explore My Books
+                </Link>
+                <Link
+                  href="/about"
+                  className="px-8 py-4 bg-white text-charcoal font-bold rounded-full text-lg border-2 border-charcoal/10 hover:border-coral/30 hover:text-coral transition-all hover:-translate-y-1"
+                >
+                  Meet Amanda
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </ParallaxHero>
 
       {/* Social Proof Counters */}
       <section className="py-16 bg-white/60">
@@ -114,10 +136,20 @@ export function HomePageClient({ books, blogPosts }: HomePageClientProps) {
       </section>
 
       {/* Featured Books Section */}
-      <section className="py-20 sm:py-28 bg-gradient-to-br from-cream-dark/50 to-cream">
+      <section className="relative py-20 sm:py-28 bg-gradient-to-br from-cream-dark/50 to-cream">
+        {/* Hidden easter egg in books section */}
+        <HiddenCharacter
+          emoji="🐉"
+          message="Patches says hello!"
+          position="top-8 right-6 sm:right-16"
+          delay={1}
+        />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-12">
-            <span className="inline-block text-4xl mb-4">✨</span>
+            <ParallaxSection speed={0.15}>
+              <span className="inline-block text-4xl mb-4">✨</span>
+            </ParallaxSection>
             <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-charcoal mb-4">
               Featured Books
             </h2>
@@ -149,16 +181,18 @@ export function HomePageClient({ books, blogPosts }: HomePageClientProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection direction="left">
-              <div className="relative max-w-md mx-auto">
-                <div className="aspect-square rounded-3xl bg-gradient-to-br from-coral/20 via-purple/15 to-teal/20 flex items-center justify-center shadow-2xl shadow-coral/10">
-                  <div className="text-center p-8">
-                    <span className="text-[100px] block mb-4">👩‍💻</span>
-                    <p className="font-[family-name:var(--font-display)] text-xl font-bold text-charcoal">
-                      Amanda Edwards
-                    </p>
+              <ParallaxSection speed={0.1}>
+                <div className="relative max-w-md mx-auto">
+                  <div className="aspect-square rounded-3xl bg-gradient-to-br from-coral/20 via-purple/15 to-teal/20 flex items-center justify-center shadow-2xl shadow-coral/10">
+                    <div className="text-center p-8">
+                      <span className="text-[100px] block mb-4">👩‍💻</span>
+                      <p className="font-[family-name:var(--font-display)] text-xl font-bold text-charcoal">
+                        Amanda Edwards
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ParallaxSection>
             </AnimatedSection>
 
             <AnimatedSection direction="right">
@@ -216,7 +250,15 @@ export function HomePageClient({ books, blogPosts }: HomePageClientProps) {
       </section>
 
       {/* Activities Teaser Section */}
-      <section className="py-20 sm:py-28">
+      <section className="relative py-20 sm:py-28">
+        {/* Hidden easter egg */}
+        <HiddenCharacter
+          emoji="🌵"
+          message="Captain Tumbleweed rolls by!"
+          position="bottom-12 left-8 sm:left-20"
+          delay={2}
+        />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-12">
             <span className="inline-block text-4xl mb-4">🎨</span>

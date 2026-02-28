@@ -15,6 +15,13 @@ export interface Book {
   amazonLink: string;
   barnesNobleLink?: string;
   bookshopLink?: string;
+  signedCopyAvailable?: boolean;
+  signedCopyPrice?: string;
+  bundleAvailable?: boolean;
+  bundleDescription?: string;
+  bundlePrice?: string;
+  copiesSold?: string;
+  awards?: string[];
   reviews: {
     text: string;
     author: string;
@@ -42,6 +49,13 @@ export const books: Book[] = [
     amazonLink: "#",
     barnesNobleLink: "#",
     bookshopLink: "#",
+    signedCopyAvailable: true,
+    signedCopyPrice: "$18.99",
+    bundleAvailable: true,
+    bundleDescription: "Book + Moonlight Garden coloring pages + glow-in-the-dark bookmark",
+    bundlePrice: "$24.99",
+    copiesSold: "5,000+",
+    awards: ["Moonbeam Children's Book Award — Gold"],
     reviews: [
       { text: "A truly magical bedtime story that my daughter asks for every single night!", author: "Sarah M.", source: "Amazon", stars: 5 },
       { text: "The illustrations are breathtaking and the rhymes are so soothing.", author: "Parent Reader", source: "Goodreads", stars: 5 },
@@ -66,6 +80,13 @@ export const books: Book[] = [
     amazonLink: "#",
     barnesNobleLink: "#",
     bookshopLink: "#",
+    signedCopyAvailable: true,
+    signedCopyPrice: "$18.99",
+    bundleAvailable: true,
+    bundleDescription: "Book + feelings weather wheel activity + emotion flashcards",
+    bundlePrice: "$26.99",
+    copiesSold: "3,000+",
+    awards: ["National Parenting Product Award"],
     reviews: [
       { text: "This book has been an incredible tool for helping my son understand his emotions.", author: "Jessica T.", source: "Amazon", stars: 5 },
       { text: "Every preschool classroom needs this book. Beautifully done.", author: "Ms. Rodriguez", source: "Educator Review", stars: 5 },
@@ -90,6 +111,12 @@ export const books: Book[] = [
     amazonLink: "#",
     barnesNobleLink: "#",
     bookshopLink: "#",
+    signedCopyAvailable: true,
+    signedCopyPrice: "$19.99",
+    bundleAvailable: true,
+    bundleDescription: "Book + patchwork dragon craft kit + signed bookplate",
+    bundlePrice: "$29.99",
+    copiesSold: "2,000+",
     reviews: [
       { text: "My daughter carries this book everywhere. She loves Patches more than any toy!", author: "Maria L.", source: "Amazon", stars: 5 },
       { text: "A beautiful message about embracing differences. The patchwork art style is genius.", author: "Storytime Reviews", stars: 5 },
@@ -114,6 +141,9 @@ export const books: Book[] = [
     amazonLink: "#",
     barnesNobleLink: "#",
     bookshopLink: "#",
+    signedCopyAvailable: true,
+    signedCopyPrice: "$19.99",
+    copiesSold: "1,500+",
     reviews: [
       { text: "The funniest children's book we've read in years. My kids are obsessed!", author: "Tom R.", source: "Amazon", stars: 5 },
       { text: "Captain Tumbleweed is the hero we didn't know we needed.", author: "PB&J Book Club", stars: 5 },
