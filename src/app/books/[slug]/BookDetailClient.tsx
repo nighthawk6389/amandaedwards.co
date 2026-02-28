@@ -164,6 +164,65 @@ export function BookDetailClient({ book }: BookDetailClientProps) {
         </div>
       </section>
 
+      {/* Peek Inside Section */}
+      {book.sampleExcerpt && (
+        <section className="py-20 bg-gradient-to-br from-purple/5 to-coral/5">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimatedSection className="text-center mb-8">
+              <span className="inline-block text-4xl mb-3">📖</span>
+              <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold text-charcoal mb-2">
+                Peek Inside
+              </h2>
+              <p className="text-charcoal-light">
+                Here&apos;s a little taste of the story...
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.1}>
+              <div className="relative bg-white rounded-3xl p-8 sm:p-12 shadow-xl shadow-black/5 max-w-2xl mx-auto">
+                {/* Decorative quote marks */}
+                <span
+                  className="absolute top-4 left-6 text-6xl text-coral/15 font-serif leading-none select-none"
+                  aria-hidden="true"
+                >
+                  &ldquo;
+                </span>
+                <div className="relative">
+                  {book.sampleExcerpt.split("\n").map((line, i) => (
+                    <p
+                      key={i}
+                      className={`font-[family-name:var(--font-display)] text-lg sm:text-xl text-charcoal leading-relaxed ${
+                        line.trim() === "" ? "h-4" : "mb-1"
+                      }`}
+                    >
+                      {line}
+                    </p>
+                  ))}
+                </div>
+                <span
+                  className="absolute bottom-4 right-6 text-6xl text-coral/15 font-serif leading-none select-none"
+                  aria-hidden="true"
+                >
+                  &rdquo;
+                </span>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2} className="text-center mt-8">
+              <a
+                href={book.amazonLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-coral text-white font-bold rounded-full text-lg hover:bg-coral-dark transition-all hover:shadow-lg hover:shadow-coral/25 hover:-translate-y-1"
+              >
+                Read the Full Story
+                <span aria-hidden="true">→</span>
+              </a>
+            </AnimatedSection>
+          </div>
+        </section>
+      )}
+
       {/* Reviews Section */}
       <section className="py-20 bg-gradient-to-br from-cream-dark to-cream">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

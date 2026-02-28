@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { BookCard } from "@/components/BookCard";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { FloatingElements } from "@/components/FloatingElements";
@@ -77,6 +78,38 @@ export function HomePageClient({ books, blogPosts }: HomePageClientProps) {
               </Link>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Social Proof Counters */}
+      <section className="py-16 bg-white/60">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <AnimatedCounter
+              target={10000}
+              suffix="+"
+              label="Books Sold"
+              emoji="📚"
+            />
+            <AnimatedCounter
+              target={50}
+              suffix="+"
+              label="School Visits"
+              emoji="🏫"
+            />
+            <AnimatedCounter
+              target={5000}
+              suffix="+"
+              label="Happy Readers"
+              emoji="😊"
+            />
+            <AnimatedCounter
+              target={4}
+              suffix=""
+              label="Books Published"
+              emoji="✨"
+            />
+          </div>
         </div>
       </section>
 
