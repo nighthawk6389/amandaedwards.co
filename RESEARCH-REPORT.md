@@ -1,448 +1,423 @@
 # Children's Book Author Website Design Research Report
 
-> Research conducted to inform the redesign of amandaedwards.co — a modern, engaging website for children's book author Amanda Edwards.
+> Research conducted to inform the redesign of amandaedwards.co
+
+---
+
+## Current Project State
+
+The site at amandaedwards.co is a fresh Next.js 16 project with Tailwind CSS 4 and Framer Motion already installed. It currently contains only the default Next.js boilerplate. This is a clean slate, which is ideal for implementing the findings below.
 
 ---
 
 ## Table of Contents
 
-1. [Competitive Analysis](#1-competitive-analysis)
-2. [Visual Design Patterns](#2-visual-design-patterns)
-3. [Content Strategy & Page Structure](#3-content-strategy--page-structure)
-4. [User Experience & Interaction Design](#4-user-experience--interaction-design)
-5. [SEO & Discoverability](#5-seo--discoverability)
-6. [Technical Implementation Recommendations](#6-technical-implementation-recommendations)
-7. [Accessibility & Performance](#7-accessibility--performance)
-8. [Summary of Recommendations](#8-summary-of-recommendations)
+1. [Best Children's Book Author Websites — What Works](#1-best-childrens-book-author-websites--what-works)
+2. [Modern Design Trends for Children's Book Author Websites (2025-2026)](#2-modern-design-trends-for-childrens-book-author-websites-2025-2026)
+3. [SEO Best Practices for Author Websites (2025-2026)](#3-seo-best-practices-for-author-websites-2025-2026)
+4. [Creative Web Design Trends for Children's Content](#4-creative-web-design-trends-for-childrens-content)
+5. [Conversion & Sales Optimization](#5-conversion--sales-optimization)
+6. [Summary of Actionable Recommendations](#6-summary-of-actionable-recommendations)
+7. [Sources](#sources)
 
 ---
 
-## 1. Competitive Analysis
+## 1. Best Children's Book Author Websites — What Works
 
-### Websites Analyzed
+### Standout Examples and Why They Work
 
-Research covered leading children's book author websites to identify patterns, best practices, and opportunities for differentiation:
+#### Mo Willems (mowillems.com)
 
-| Author | Website | Key Strengths |
-|--------|---------|---------------|
-| **Oliver Jeffers** | oliverjeffers.com | Stunning visual storytelling, immersive illustration-driven design, minimal text with maximum impact |
-| **Mo Willems** | mowillems.com | Playful character-driven branding, strong activities section, educator resources |
-| **Eric Carle** | eric-carle.com | Legacy brand consistency, rich educational resources, museum integration |
-| **Julia Donaldson** | juliadonaldson.co.uk | Comprehensive book catalog, school visit promotion, event calendar |
-| **Aaron Blabey** | aaronblabey.com | Bold, energetic design, strong merchandise integration, humor-forward |
-| **Jacqueline Woodson** | jacquelinewoodson.com | Elegant, literary-forward design, strong author voice, award showcasing |
-| **Peter H. Reynolds** | peterhreynolds.com | Creativity-focused, workshop promotion, "Creatrilogy" brand consistency |
-| **Dav Pilkey** | pilkey.com | Interactive, kid-focused navigation, games and activities, accessibility |
+- Incorporates his brand identity directly into the UX — his FAQ is phrased "Did you Mo that..." turning navigation into wordplay
+- Character-driven design with the Pigeon featured throughout
+- Interactive activities section ("Get Busy" menu) with how-to-draw instructionals, games, and downloadable activities
+- Video content ("Vid-E-Mos") that keeps kids engaged
+- A dedicated "Mo!" page with fun author facts presented in his signature style
 
-### Key Findings from Competitive Analysis
+#### Oliver Jeffers (oliverjeffers.com)
 
-**Common patterns across top-performing author sites:**
+- Minimalist, gallery-like design that lets artwork take center stage
+- Dynamic homepage video that changes based on visitor location and time of day
+- Project-specific styling: each project gets its own color palette and layout that echoes its illustrations
+- Custom CMS built on Craft CMS for flexible content management
+- Creates a genuine sense of discovery and exploration — the site feels like an experience, not a brochure
+- Designed by agency Eyekiller with a "flexible theming system" for brand consistency across diverse work
 
-1. **Visual-first approach**: Every successful children's book author website leads with strong visuals — illustrations, character art, or bold color palettes that immediately establish the author's brand
-2. **Activities/Resources section**: 7 out of 8 sites featured downloadable activities (coloring pages, drawing tutorials, reading guides), making this practically a requirement
-3. **School visit promotion**: All but one site prominently featured school/library visit booking, indicating this is a significant revenue and marketing channel
-4. **Newsletter signup**: Present on 100% of sites analyzed, typically in footer and on homepage
-5. **Social proof**: Awards, reviews, and reader testimonials featured prominently
-6. **Book catalog as centerpiece**: The books page is consistently the most developed section, with detailed individual pages per title
-7. **Blog/news section**: 6 out of 8 sites maintained active blogs, primarily covering writing process, parenting tips, and event announcements
+#### Eric Carle (eric-carle.com)
 
-**Opportunities for differentiation:**
+- Uses his trademark watercolor illustration style as the design language for the entire site
+- Calming, muted watercolor palette rather than bright primary colors — distinctive and brand-consistent
+- Activities section with mazes, coloring pages, and teacher/parent resources
+- Easy to navigate without being overwhelming
 
-- Most author sites feel static and corporate; animated, interactive elements would stand out
-- Few sites effectively use social proof counters or metrics
-- Activities sections are often buried — making them prominent and fun could drive engagement
-- Contact pages are typically bare-bones forms; adding personality here is an opportunity
-- Many competitor sites have poor mobile experiences; responsive-first design is a differentiator
+#### Peter Brown (peterbrownstudio.com)
 
----
+- Audience-segmented entry: on arrival, visitors choose "Teacher," "Kid," or "Grown-up," tailoring the experience
+- "Create and Learn" section with activities and videos
+- This audience-routing pattern is especially smart for children's book authors who serve multiple distinct audiences
 
-## 2. Visual Design Patterns
+#### Jarrett Lerner (jarrettlerner.com)
 
-### Color Palette Research
+- Sketchbook-inspired design aesthetic — subtle colors that feel hand-drawn
+- Heavy focus on free activities: coloring pages, how-to-draw tutorials, book-related activities
+- WordPress-based, demonstrating you don't need custom development for a great children's author site
 
-Research into child psychology, brand design, and competitor analysis informed the color palette selection:
+#### Kylie Howarth
 
-**Warm color palettes outperform cool ones for children's content:**
-- Studies in environmental psychology show warm colors (reds, oranges, yellows) create feelings of energy, warmth, and invitation — ideal for a children's brand
-- Cool colors (blues, greens) work as accents to create balance and trust
-- Pure white backgrounds feel sterile; cream/warm-white creates a "storybook" feel
+- Minimal homepage with just one illustration and simple text
+- Proves that less can be more — a single strong illustration can be more impactful than a busy page
 
-**Recommended palette (derived from research):**
+### Key Patterns Across Successful Sites
 
-| Color | Hex | Usage | Psychology |
-|-------|-----|-------|------------|
-| Cream | #FFF8F0 | Background | Warm, inviting, story-like |
-| Coral | #FF6B6B | Primary CTA | Energetic, warm, attention-grabbing |
-| Teal | #4ECDC4 | Secondary accent | Trust, learning, calm balance |
-| Sunny Yellow | #FFE66D | Tertiary accent | Joy, optimism, playfulness |
-| Purple | #A78BFA | Special content | Imagination, creativity, magic |
-| Charcoal | #2D3436 | Text | Readable without harsh black |
-
-**Key insight:** The most successful children's brand websites avoid pure white (#FFFFFF) backgrounds and pure black (#000000) text. Softer variants (cream backgrounds, charcoal text) create a warmer, more approachable reading experience.
-
-### Typography Research
-
-**Display fonts for children's brands should be:**
-- Rounded, not angular (conveys friendliness)
-- Available in multiple weights (flexibility without switching fonts)
-- Distinctive but readable (playful doesn't mean illegible)
-- Web-optimized with proper font loading
-
-**Research findings:**
-- **Fredoka** emerged as the top recommendation: rounded, playful, professional, excellent weight range (300-700), and freely available via Google Fonts
-- **Nunito** pairs well as a body font: clean sans-serif with rounded terminals that echo Fredoka's warmth without competing with it
-- Variable font loading with `display: swap` prevents layout shift during font loading
-
-**Competitor font choices:**
-- Oliver Jeffers: Custom serif (literary, premium)
-- Mo Willems: Custom hand-drawn style (character-driven)
-- Dav Pilkey: Bold, comic-book inspired (energetic)
-- Most indie authors: Generic sans-serif (missed opportunity)
-
-### Layout & Spacing
-
-**Research on children's content layout:**
-- Generous whitespace (2rem+ between sections) creates a premium, breathable feel
-- Card-based layouts with large border-radius (1.5-3rem) feel organic and child-friendly
-- Full-bleed sections with alternating backgrounds break visual monotony
-- Maximum content width of ~80rem (1280px) keeps line lengths readable
+| Pattern | Frequency | Impact |
+|---------|-----------|--------|
+| Free downloadable activities | Nearly universal | Drives repeat visits, builds goodwill with teachers/parents |
+| Author personality in UX copy | Most top sites | Creates emotional connection and brand differentiation |
+| Character/illustration-forward design | Universal | Instantly communicates genre and brand |
+| School visit booking page | Very common | Critical revenue stream for children's authors |
+| Video content (trailers, read-alouds) | Growing rapidly | Multi-sensory engagement, classroom utility |
+| Audience-aware navigation | Emerging | Serves multiple visitor types (kids, parents, teachers) |
 
 ---
 
-## 3. Content Strategy & Page Structure
+## 2. Modern Design Trends for Children's Book Author Websites (2025-2026)
 
-### Essential Pages (from competitive analysis)
+### Visual Design Trends
 
-Research identified the following pages as essential for a children's book author website, ranked by visitor importance:
+#### "Imperfect by Design" / Anti-Perfection Aesthetic
 
-#### 1. Homepage
-**Purpose:** First impression, brand establishment, navigation hub
+The dominant 2026 trend is a creative rebellion against polished, AI-generated sameness. Hand-drawn elements, organic scribbles, intentionally imperfect patterns, and collage-style compositions are all gaining prominence. This is perfectly aligned with children's book illustration aesthetics and gives independent authors a natural advantage over corporate-feeling sites.
 
-**Must-have sections:**
-- Hero with clear value proposition ("Who is this author? What do they write?")
-- Social proof (book count, reader count, school visits)
-- Featured books (max 4, with links to catalog)
-- About preview (humanize the author)
-- Reviews/testimonials (3 minimum)
-- Activities teaser (drive engagement)
-- Blog preview (fresh content signals)
-- Newsletter signup (list building)
+#### Kid Core Aesthetic
 
-**Research insight:** Homepage bounce rates for author websites average 60-70%. Sites with engaging hero sections and clear navigation paths reduce this to 40-50%.
+This trend embraces childlike joy and nostalgia with bright, saturated colors, playful shapes, and tactile textures. AI tools are making this style faster to create and easier to scale, but the best implementations feel genuinely handmade.
 
-#### 2. Books Catalog + Individual Book Pages
-**Purpose:** Showcase the author's work, drive purchases
+#### Dopamine Design / Bold Saturated Palettes
 
-**Must-have elements per book:**
-- Cover image/visual representation
-- Title, subtitle, description
-- Age range and page count
-- Theme tags (for parent/educator discoverability)
-- Purchase links (Amazon, Barnes & Noble, Bookshop.org minimum)
-- Reader reviews
-- Sample excerpt or preview
+Bright, saturated color palettes are back. Neon gradients, high-contrast pairings, and playful hues are replacing the muted, minimal tones that dominated earlier years. This is driven by Y2K nostalgia and a desire for visual joy.
 
-**Research insight:** Including 3+ purchase options increases conversion by accommodating buyer preferences. Bookshop.org specifically appeals to independent bookstore advocates.
+#### Organic Shapes and Anti-Grid Layouts
 
-#### 3. About Page
-**Purpose:** Build personal connection, establish credibility
+After years of strict grids, design is softening. Flowing lines, rounded corners, soft gradients, and organic shapes make digital experiences feel more natural and approachable — ideal for a children's book brand.
 
-**Must-have elements:**
-- Professional photo/avatar
-- Author bio (warm, personal tone)
-- Mission statement
-- Career timeline/milestones
-- Fun facts (humanizing details)
-- CTAs (contact, view books)
+#### Playful Typography
 
-**Research insight:** "About" pages are the 2nd most visited page on author websites after the homepage. Parents and educators want to know who is writing for their children.
+- Oversized sans-serifs and bubbly/puffy letterforms
+- Wavy, distorted, bubble-like fonts for display text
+- Handwritten scripts and loopy cursives for personality
+- **Important:** keep body text readable (sans-serif, 16-18px minimum)
 
-#### 4. Activities/Fun Stuff Page
-**Purpose:** Drive engagement, provide value, build loyalty
+#### Tactile and Sensory Textures
 
-**Must-have elements:**
-- Downloadable coloring pages
-- Drawing tutorials
-- Word searches/puzzles
-- Writing prompts
-- Category filtering
-- Teacher/parent resource callouts
+Puffy, soft, squishy textures and hyper-realistic objects with playful distortions are trending. These create a sense of physical presence in a digital space.
 
-**Research insight:** Downloadable activities drive 3x more return visits than any other content type on children's author websites. They also generate organic social sharing when parents post completed activities.
+### Interactive/UX Trends
 
-#### 5. Blog
-**Purpose:** SEO, fresh content, community building
+#### Micro-Interactions
 
-**Recommended content categories:**
-- Parenting tips (highest search volume)
-- Behind-the-scenes of book creation (highest engagement)
-- Reading activity ideas (most shared)
-- Personal author journey (builds connection)
+Small interactive elements that create delight without slowing the page — hover effects that wiggle a character, buttons that bounce on click, subtle parallax on illustrations. These make the site memorable.
 
-**Research insight:** Author blogs that post 2-4 times monthly see 40% more organic traffic than those posting less frequently. Posts between 800-1200 words perform best for this audience.
+#### Scroll-Based Storytelling (Motion Narrative)
 
-#### 6. Events/School Visits
-**Purpose:** Revenue generation, community engagement
+Intentional, thoughtful movement that transforms static pages into living experiences. For a children's book author, this could mean illustrations that animate as you scroll through the page, echoing the page-turning experience of a physical book.
 
-**Must-have elements:**
-- Available program types with descriptions
-- Grade/age range suitability
-- Duration information
-- Booking CTA
-- Educator testimonials
-- How-it-works process
+#### Playful Cursors
 
-**Research insight:** School visits are a primary income source for children's book authors. A well-structured events page can increase booking inquiries by 60%.
+Custom cursor designs that change based on page section or hover state. A small element that creates significant impact on the interactive experience.
 
-#### 7. Contact Page
-**Purpose:** Inquiry conversion, accessibility
+#### Card Play Design
 
-**Must-have elements:**
-- Contact form with reason selector
-- Social media links
-- School visit quick info
-- FAQ section (reduces repetitive inquiries)
-- Response time expectations
+Rounded-corner cards that tilt, overlap, and animate. Increasingly interactive and animated, moving beyond static grid layouts.
 
-**Research insight:** Contact forms with a "reason" selector (fan mail, school visit, media inquiry, etc.) help authors prioritize responses and increase form completion rates by 25%.
+#### Strategic White Space
+
+Clean design with thoughtful typography creates a peaceful reading experience. The contrast between playful elements and breathing room is what makes modern children's sites feel sophisticated rather than chaotic.
 
 ---
 
-## 4. User Experience & Interaction Design
+## 3. SEO Best Practices for Author Websites (2025-2026)
 
-### Animation & Motion Research
+### Critical Technical SEO
 
-**Findings on animation in children's brand websites:**
+#### Schema Markup (JSON-LD) — Non-Negotiable
 
-1. **Subtle motion increases engagement**: Websites with purposeful animations see 15-20% longer session durations
-2. **Scroll-triggered animations** outperform page-load animations for perceived performance
-3. **Staggered element reveals** (sequential delays) create a sense of story and progression — fitting for an author website
-4. **Micro-interactions on hover** (elevation, rotation, color shift) provide satisfying feedback and encourage exploration
-5. **Floating decorative elements** add whimsy but must be GPU-optimized and hidden on mobile for performance
+Implement these schema types:
 
-**Recommended animation library:** Framer Motion
-- Best-in-class React animation library
-- Built-in viewport detection (`whileInView`)
-- Hardware-accelerated transforms
-- AnimatePresence for route transitions
-- Excellent developer experience
+- **Person** schema for the author profile (name, image, sameAs links to social profiles, description)
+- **Book** schema for each book (name, author, isbn, bookFormat, numberOfPages, datePublished, publisher, image)
+- **BookSeries** if applicable
+- **Article** schema for blog posts (with author, datePublished, dateModified)
+- **Event** schema for school visits and appearances
+- **BreadcrumbList** for site navigation
+- **WebSite** with SearchAction for sitelinks
 
-**Animation principles for children's sites:**
-- Duration: 0.3-0.6s for interactions, 0.6-1s for reveals
-- Easing: Custom cubic-bezier for bouncy, organic feel — `[0.22, 1, 0.36, 1]`
-- Direction: Bottom-up reveals feel natural (content "growing")
-- Stagger: 0.1s delay between sibling elements creates wave effect
-- Respect `prefers-reduced-motion`: All animations must be disableable
+JSON-LD is the only format Google recommends. Keep it in `<script type="application/ld+json">` tags, separate from HTML.
 
-### Navigation Patterns
+#### Core Web Vitals
 
-**Research findings on author website navigation:**
+- **Largest Contentful Paint (LCP):** under 2.5 seconds
+- **Interaction to Next Paint (INP):** under 200ms — this replaced First Input Delay in March 2024 and measures ALL interactions, not just the first
+- **Cumulative Layout Shift (CLS):** under 0.1
 
-- **Sticky headers** are essential — 78% of users navigate via header regardless of scroll position
-- **Mobile hamburger menus** should use full-height overlays, not dropdowns, for child-friendly touch targets
-- **"Shop Books" CTA** in the header drives 2x more book page visits than text-only links
-- **Footer navigation** should mirror but expand on header navigation
-- **Breadcrumb navigation** on detail pages (book pages, blog posts) reduces back-button usage by 30%
+Only 47-54% of websites currently meet all thresholds — meeting them is a competitive advantage. Next.js Image component and font optimization help significantly here.
 
-### Form Design
+#### Mobile-First Design
 
-**Contact form research:**
-- Visual reason selectors (emoji buttons) outperform dropdown menus for engagement
-- Inline validation reduces form abandonment
-- Success states should be celebratory (matching brand tone), not generic
-- Email-only newsletter signups have 3x higher completion than multi-field forms
+62.5% of global website traffic is mobile. Ensure touch targets are at least 48x48px, fonts are readable without zooming, and images are responsive.
 
----
+### Content & Authority SEO
 
-## 5. SEO & Discoverability
+#### E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)
 
-### Children's Book Author SEO Strategy
+- Create a detailed author profile page with qualifications, publishing history, awards, and links to external publications
+- Include verifiable real-world experience (school visits, speaking engagements, reviews)
+- Link author profiles via `sameAs` to LinkedIn, Instagram, Goodreads, Amazon author page
+- In 2026, Google penalizes AI-generated content that lacks a real human signature — authentic author voice is a ranking advantage
 
-**Primary target keywords (by search volume):**
-1. "children's books" (high volume, high competition)
-2. "kids books about [theme]" (medium volume, medium competition)
-3. "children's book author" (medium volume, low competition)
-4. "read aloud books for kids" (medium volume, medium competition)
-5. "kids activities" / "printable activities for kids" (high volume, medium competition)
-6. "bedtime stories for children" (medium volume, low competition)
-7. "school author visits" (low volume, very low competition)
+#### Topical Authority
 
-**Long-tail opportunities:**
-- "children's books about kindness"
-- "picture books about feelings"
-- "books about being different for kids"
-- "free coloring pages for kids"
-- "author school visit booking"
+Build content clusters around your niche. For a children's book author, this might include:
 
-### Technical SEO Requirements
+- Blog posts about your creative process
+- Reading guides and activity suggestions
+- Posts about literacy, reading with children, or your book's themes
+- Behind-the-scenes content about illustration or writing
 
-**Must-implement:**
+#### Answer Engine Optimization (AEO)
 
-1. **Structured Data (JSON-LD)**
-   - `Person` schema for the author
-   - `WebSite` schema for the site
-   - `Book` schema for each book (ISBN, publication date, author, audience age range)
-   - `BlogPosting` schema for blog posts
-   - `BreadcrumbList` for navigation hierarchy
-   - `FAQPage` for the contact FAQ section
+97% of AI Overview citations come from pages already ranking in the top 20. Structure content with clear headings, direct answers to common questions, and FAQ sections to be cited by ChatGPT, Perplexity, Google AI Overviews.
 
-2. **Meta Tags**
-   - Unique title and description per page
-   - OpenGraph tags for social sharing
-   - Twitter Card tags (summary_large_image format)
-   - Canonical URLs
+#### Backlinks
 
-3. **Sitemap & Robots**
-   - XML sitemap including all static and dynamic routes
-   - robots.txt with sitemap reference
-   - All pages set to index, follow
+Quality over quantity. A few links from reputable sources (publisher websites, school library blogs, literary review sites, .edu domains) are worth more than hundreds of low-quality links.
 
-4. **Performance Signals**
-   - Core Web Vitals optimization (LCP < 2.5s, FID < 100ms, CLS < 0.1)
-   - Image optimization (AVIF/WebP with fallbacks)
-   - Font loading optimization (preconnect, display: swap)
+### Practical SEO Checklist for the Site
 
-**Research insight:** Children's book author websites that implement Book schema see 30-40% higher click-through rates in search results due to rich snippets showing ratings, age ranges, and availability.
+- [ ] Unique, descriptive title tags per page (under 60 characters)
+- [ ] Meta descriptions with emotional hooks (under 155 characters)
+- [ ] Semantic HTML (proper heading hierarchy h1 > h2 > h3)
+- [ ] Alt text on all images (descriptive, not keyword-stuffed)
+- [ ] Internal linking between related pages
+- [ ] XML sitemap submitted to Google Search Console
+- [ ] robots.txt properly configured
+- [ ] SSL certificate (mandatory in 2026)
+- [ ] Open Graph and Twitter Card meta tags for social sharing
+- [ ] Canonical URLs to prevent duplicate content
 
 ---
 
-## 6. Technical Implementation Recommendations
+## 4. Creative Web Design Trends for Children's Content
 
-### Framework Selection
+### Color Palette Recommendations
 
-**Next.js (App Router)** recommended for the following reasons:
+#### Warm, Playful Palette (Recommended for Independent Children's Book Author)
 
-| Requirement | Next.js Advantage |
-|-------------|-------------------|
-| SEO | Server-side rendering, static generation |
-| Performance | Automatic code splitting, image optimization |
-| Developer experience | File-based routing, TypeScript support |
-| Hosting | Vercel deployment with zero-config |
-| Scalability | Incremental Static Regeneration for future growth |
+| Swatch | Hex | Use |
+|--------|-----|-----|
+| Sunshine Yellow | `#FFEB3B` | Accent, CTAs, highlights |
+| Sky Blue | `#81D4FA` | Headers, backgrounds |
+| Bubblegum Pink | `#FF4081` | Accent, hover states |
+| Grass Green | `#76FF03` | Success states, nature elements |
+| Tangerine Orange | `#FF7043` | Buttons, key CTAs |
+| Warm White | `#FFF8F0` | Page backgrounds |
+| Soft Charcoal | `#2D2D2D` | Body text |
 
-### Component Architecture
+#### Alternative: Soft/Watercolor Palette (Eric Carle-inspired)
 
-**Recommended pattern:**
-- **Server Components** for pages (metadata, data fetching, SEO)
-- **Client Components** for interactivity (forms, animations, state)
-- **Shared data files** for books, blog posts, activities (easy to update without code changes)
-- **Reusable animation components** (AnimatedSection, AnimatedCounter) for consistency
+| Swatch | Hex | Use |
+|--------|-----|-----|
+| Dusty Rose | `#E8A0BF` | Primary accent |
+| Sage Green | `#A8D5BA` | Secondary accent |
+| Soft Gold | `#F5D491` | Highlights |
+| Sky Wash | `#B8D4E3` | Backgrounds |
+| Warm Cream | `#FFF5E6` | Page base |
+| Deep Navy | `#2C3E50` | Text, headers |
 
-### Security Headers
+#### Palette Construction Guidelines
 
-**Recommended headers:**
-- `X-Content-Type-Options: nosniff` — prevents MIME-type sniffing
-- `X-Frame-Options: DENY` — prevents clickjacking
-- `X-XSS-Protection: 1; mode=block` — XSS protection
-- `Referrer-Policy: strict-origin-when-cross-origin` — privacy protection
+- Pick 2-3 primary colors that reflect your personality and story tone
+- Add 1-2 neutral/background colors
+- Include 1 "secret thread" accent color used consistently (like a bright magenta) to tie the brand together
+- For younger audiences (picture books), go bolder; for middle grade, slightly more sophisticated/muted
+- Test all color combinations for WCAG contrast ratios (minimum 3:1 for UI elements, 4.5:1 for body text)
 
-### Styling Approach
+### Layout Patterns That Work
 
-**Tailwind CSS 4** recommended:
-- Utility-first approach speeds development
-- CSS custom properties for theme tokens
-- Built-in responsive design system
-- Purged CSS in production (minimal bundle size)
-- Excellent developer experience with IDE support
+#### Homepage Structure (Recommended Order)
 
----
+1. **Hero Section:** Full-width illustration or animated scene + author name + one-line tagline + primary CTA ("Explore My Books" or "Get the Latest Book")
+2. **Featured/Latest Book:** Large book cover (3D rendering or clean flat graphic), 1-3 sentence emotional pitch, age range, buy button
+3. **About Snippet:** 2-3 sentences + author photo, warm and personal, link to full About page
+4. **Books Grid:** Card layout showing all titles with covers, hover effects revealing brief descriptions
+5. **Activities/Free Resources Teaser:** Preview of downloadable content with CTA to activities page
+6. **Events/School Visits:** Upcoming appearances, "Book a Visit" CTA
+7. **Email Signup:** Lead magnet offer (free coloring pages, bonus story, activity pack)
+8. **Social Proof:** Reviews, press mentions, awards badges
+9. **Footer:** Social links, contact info, newsletter signup repeat, copyright
 
-## 7. Accessibility & Performance
+#### Navigation (4-6 items maximum)
+
+```
+Home | Books | About | Activities | Events | Contact
+```
+
+- Use clear, direct labels — not cute/clever ones (teachers and librarians need to find information quickly)
+- Consider a prominent "Book a Visit" or "Buy the Book" button in the header
+
+### Interactive Elements Worth Implementing
+
+#### High-Impact, Achievable with Framer Motion (already installed)
+
+- Page transition animations (fade, slide)
+- Scroll-triggered illustration reveals
+- Book cover hover effects (slight tilt, shadow depth change, scale)
+- Animated hero section with floating illustration elements
+- Smooth accordion animations for FAQ or book details
+- Parallax scrolling on key illustration sections
+- Animated counters for social proof ("50,000+ books sold")
+
+#### Medium-Effort, High-Reward
+
+- "Peek inside" book preview with page-flip animation
+- Character that follows cursor or reacts to mouse position
+- Easter eggs hidden throughout the site (hidden characters, clickable elements with surprises)
+- Loading animations featuring book characters
+
+#### For Future Consideration
+
+- Downloadable coloring pages (PDF generation)
+- Interactive quiz ("Which character are you?")
+- Read-aloud audio player with animated illustrations
+- AR features for book covers (emerging trend)
 
 ### Accessibility Requirements (WCAG 2.1 AA)
 
-**Critical for a children's/education-focused site:**
+Playful design must not sacrifice accessibility:
 
-1. **Keyboard navigation**: All interactive elements must be focusable and operable
-2. **Skip-to-content link**: First focusable element for screen reader users
-3. **Focus indicators**: Visible focus rings (3px coral outline with offset)
-4. **ARIA labels**: All form inputs, buttons, and navigation elements
-5. **Reduced motion**: `@media (prefers-reduced-motion)` disables all animations
-6. **Color contrast**: WCAG AA contrast ratios (4.5:1 for text, 3:1 for large text)
-7. **Semantic HTML**: Proper heading hierarchy, form labels, landmark roles
-8. **Alt text**: Descriptive text for all meaningful images
-
-**Research insight:** 15% of school visitors evaluate website accessibility before booking author visits. Accessibility compliance is both ethical and practical.
-
-### Performance Targets
-
-| Metric | Target | Strategy |
-|--------|--------|----------|
-| LCP | < 2.5s | Optimized images, font preloading |
-| FID | < 100ms | Minimal main-thread blocking |
-| CLS | < 0.1 | Font display: swap, reserved image space |
-| TTI | < 3.5s | Code splitting, lazy loading |
-| Bundle Size | < 200KB (initial) | Tree shaking, dynamic imports |
-
-**Performance optimizations:**
-- AVIF and WebP image formats via Next.js Image component
-- Google Fonts preconnect for faster font loading
-- Decorative animations hidden on mobile (GPU/battery savings)
-- Viewport-triggered animations (no unnecessary computation)
-- Static generation for all content pages
+- Minimum 4.5:1 contrast ratio for body text, 3:1 for large text and UI elements
+- All animations must respect `prefers-reduced-motion` media query
+- Decorative fonts only for headlines; body text in readable sans-serif (16px minimum)
+- All images need descriptive alt text
+- Keyboard navigation must work for all interactive elements
+- Moving/auto-playing content needs pause/stop controls
+- Color must not be the only way to convey information (use patterns, shapes, or text as well)
+- Logical heading structure for screen readers
 
 ---
 
-## 8. Summary of Recommendations
+## 5. Conversion & Sales Optimization
 
-### Design Decisions
+### Email List Building (Highest ROI Strategy for Authors)
 
-| Decision | Recommendation | Rationale |
-|----------|----------------|-----------|
-| **Color scheme** | Warm coral + teal + cream | Inviting, child-friendly, professional |
-| **Typography** | Fredoka (display) + Nunito (body) | Playful yet readable, Google Fonts available |
-| **Layout** | Card-based with generous spacing | Flexible, scannable, premium feel |
-| **Backgrounds** | Cream base, alternating gradient sections | Breaks monotony, creates visual rhythm |
-| **Corners** | Large border-radius (1.5-3rem) | Organic, soft, child-appropriate |
-| **Shadows** | Subtle (5-10% opacity) | Depth without harshness |
-| **Icons** | Emoji-based | Universal, fun, zero-download |
-| **Animations** | Scroll-triggered reveals + hover micro-interactions | Engaging without overwhelming |
+#### Lead Magnets That Work for Children's Book Authors
 
-### Content Priorities
+- Free coloring pages or activity sheets from the books
+- Bonus short story or bonus chapter
+- Printable bookmarks featuring book characters
+- "Reading Guide" for parents/teachers
+- Behind-the-scenes illustration process PDF
+- Early access to new book announcements
 
-1. **Books are the centerpiece** — detailed catalog with individual pages, purchase links, and reviews
-2. **Activities drive return visits** — downloadable resources create ongoing value
-3. **Blog supports SEO** — parenting tips and behind-the-scenes content attract organic traffic
-4. **School visits generate revenue** — dedicated events page with clear booking path
-5. **Newsletter builds audience** — prominent signup forms on every page
-6. **Social proof builds trust** — reviews, counters, and testimonials throughout
+#### Email Signup Placement
 
-### Technical Stack
+- Exit-intent popup (not aggressive — one-time, dismissible)
+- Inline within blog posts
+- Dedicated section on homepage (between content blocks, not hidden in footer)
+- End of every blog post
+- Dedicated landing page for each lead magnet
 
-- **Framework**: Next.js 16 (App Router) with TypeScript
-- **Styling**: Tailwind CSS 4 with CSS custom properties
-- **Animation**: Framer Motion 12 with reduced-motion support
-- **Deployment**: Vercel (recommended) or any Node.js hosting
-- **Testing**: Playwright for end-to-end tests
+**Target:** Open rates above 40% are achievable with segmented, personalized lists (vs. generic blast emails).
 
-### Success Metrics to Track
+### Direct Sales Strategy
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| Bounce rate | < 50% | Google Analytics |
-| Pages per session | > 2.5 | Google Analytics |
-| Newsletter signups | 50+/month | Form submissions |
-| School visit inquiries | 5+/month | Contact form (reason: school visit) |
-| Book page → purchase clicks | > 15% CTR | Event tracking |
-| Activity downloads | 200+/month | Download tracking |
-| Organic search traffic | +40% YoY | Google Search Console |
-| Mobile vs desktop split | 60/40 mobile-first | Analytics |
+- Consider Shopify integration or similar for selling signed copies, bundles, and merchandise (up to 90% royalty vs. 70% on Amazon)
+- Include Amazon/bookshop.org buy links for standard purchases
+- Social commerce integration (Instagram Shops, Facebook Shops)
+- Bundle offers (book + activity pack, book + signed bookplate)
+
+### Page-Level Conversion Elements
+
+- Every book page needs a clear, prominent "Buy Now" button above the fold
+- Include multiple purchase options (Amazon, Bookshop.org, indie bookstores, signed copies)
+- Social proof near purchase buttons (review stars, award badges, "50,000+ copies sold")
+- Urgency elements where genuine ("Pre-order now," "Limited signed editions")
 
 ---
 
-## Appendix: Research Sources
+## 6. Summary of Actionable Recommendations
 
-- Competitive analysis of 8 children's book author websites (January-February 2026)
-- Google Trends data for children's book related keywords
-- WCAG 2.1 AA accessibility guidelines
-- Core Web Vitals documentation and benchmarks
-- Children's Book Council publisher online resources
-- Environmental psychology research on color and children's spaces
-- Web.dev performance and SEO best practices
-- Framer Motion documentation and animation best practices
-- Next.js 16 App Router documentation
-- Tailwind CSS 4 design system documentation
+### Must-Haves (Priority 1)
+
+- Illustration-forward hero section that immediately communicates "children's book author"
+- Clean, 4-6 item navigation with direct labels
+- Individual book pages with covers, descriptions, age ranges, and buy links
+- Author bio page with personality, photos, and credentials
+- Email signup with compelling lead magnet (free activity/coloring pages)
+- Mobile-responsive design optimized for Core Web Vitals
+- JSON-LD schema markup for Person, Book, and WebSite types
+- SSL, sitemap, proper meta tags, and Open Graph tags
+
+### Should-Haves (Priority 2)
+
+- Activities/Resources page with downloadable content
+- School Visits/Events page with booking CTA
+- Blog for topical authority and SEO
+- Scroll-triggered animations and micro-interactions (leverage Framer Motion)
+- Press/Media Kit page
+- Social proof section (reviews, awards, press mentions)
+
+### Nice-to-Haves (Priority 3)
+
+- Audience-segmented entry (like Peter Brown's kid/teacher/grown-up routing)
+- Dynamic content that changes by time of day (like Oliver Jeffers)
+- Easter eggs and hidden interactive elements
+- Book preview with page-flip animation
+- Interactive quiz or game
+- AR integration for book covers
 
 ---
 
-*This research report was compiled to inform the complete redesign of amandaedwards.co. All recommendations were implemented in the final website build.*
+## Sources
+
+- Jin & Co — 10 Tips for a Standout Children's Author Website
+- Rocket Expansion — 28 Children's Author and Illustrator Websites That Delight
+- Rocket Expansion — Top 20 Author Websites Every Author Must See (2026)
+- 99designs — 30+ Best Book Web Design Ideas 2026
+- Outbox Online — Children's Book Author Website Design: For Kids, but Not Really
+- Site Builder Report — 29 Author Websites That Will Make You Jealous
+- Eevi Jones — Best Website Builder For Children's Book Authors
+- Meira Media — Homepage Checklist for Children's Book Authors in 2026
+- Swoon Worthy Designs — Author Website Design Trends 2025
+- Eyekiller — Oliver Jeffers Website Case Study
+- Oliver Jeffers Official Website
+- Peter Brown Studio
+- Jarrett Lerner
+- Picture Book Brain — Best Children's Author Websites
+- Guided Web Design — Author Website Layout Ideas
+- Honey Design Co — Create a Fun Children's Book Author Website
+- Printivity — How to Choose the Perfect Children's Book Color Palette
+- Hasty Book List — Creating a Color Palette for Your Author Brand
+- Tullip Studio — The Power of Author Branding in Children's Literature
+- Colorany — 31 Children's Book Color Palettes
+- Boston Institute of Analytics — SEO Best Practices 2026
+- First Page Sage — SEO Best Practices 2026
+- Svitla Systems — SEO Best Practices 2026
+- Content Whale — 10 Best SEO Practices 2026
+- WeVenture — 5 SEO Trends You Can't Ignore in 2026
+- Marketer Milk — 8 Top SEO Trends 2026
+- Automateed — How to Add Schema Markup for Authors
+- Positional — Author Schema Markup & SEO
+- Digital Applied — Structured Data SEO 2026
+- Figma — Top Web Design Trends 2026
+- Canva — Design Trends 2026: Imperfect by Design
+- Kittl — 10 Graphic Design Trends 2026
+- Adobe — Design Trends 2026
+- UX Pilot — 14 Web Design Trends 2026
+- Elementor — Web Design Trends 2026
+- Framer — 7 Emerging Web Design Trends
+- DGolden Conlin — Marketing Your Book in 2026
+- Book Marketing Bestsellers — Top 4 Book Marketing Strategies 2026
+- Inkfluence AI — How to Market an Ebook 2026
+- Made Live — Prioritizing Accessibility in Children's Book Design
+- WCAG.com — Resources for Designers
+- accessiBe — Inclusive Design Best Practices
