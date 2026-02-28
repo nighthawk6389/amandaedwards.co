@@ -109,19 +109,23 @@ test.describe("Animations", () => {
   test("mobile menu has open/close animations", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto("/");
+    await page.waitForTimeout(1000);
 
-    const hamburger = page.getByLabel("Toggle menu");
+    const hamburger = page.locator('button[aria-label="Open menu"]');
+    await expect(hamburger).toBeVisible({ timeout: 10000 });
 
     // Open menu
     await hamburger.click();
     await page.waitForTimeout(400);
 
-    // Menu should be visible with animated links
-    const mobileMenu = page.locator("header").locator(".md\\:hidden").last();
-    await expect(mobileMenu).toBeVisible();
+    // Menu should be visible with animated links inside the mobile menu
+    const mobileMenu = page.locator("#mobile-menu");
+    await expect(mobileMenu.getByText("Home")).toBeVisible();
+    await expect(mobileMenu.getByText("Contact")).toBeVisible();
 
-    // Close menu
-    await hamburger.click();
+    // Close menu (aria-label changes to "Close menu" when open)
+    const closeButton = page.locator('button[aria-label="Close menu"]');
+    await closeButton.click();
     await page.waitForTimeout(500);
   });
 });

@@ -75,8 +75,8 @@ test.describe("Books Page", () => {
         })
       ).toBeVisible();
 
-      // Subtitle
-      await expect(page.getByText("A Bedtime Adventure")).toBeVisible();
+      // Subtitle (appears on both cover and detail section)
+      await expect(page.getByText("A Bedtime Adventure").first()).toBeVisible();
 
       // Long description
       await expect(
@@ -91,7 +91,7 @@ test.describe("Books Page", () => {
 
       // Page count
       await expect(page.getByText("32")).toBeVisible();
-      await expect(page.getByText("Pages")).toBeVisible();
+      await expect(page.getByText("Pages", { exact: true })).toBeVisible();
 
       // Year (2024)
       await expect(page.getByText("2024")).toBeVisible();
@@ -125,15 +125,16 @@ test.describe("Books Page", () => {
     test("breadcrumb navigation works on detail pages", async ({ page }) => {
       await page.goto("/books/the-big-feelings-cloud");
 
-      // Breadcrumb should show Books > The Big Feelings Cloud
-      const breadcrumb = page.locator("nav").first();
-      await expect(breadcrumb.getByText("Books")).toBeVisible();
+      // Breadcrumb is the nav element inside main content area (not the header nav)
+      // It contains "Books / The Big Feelings Cloud"
+      const breadcrumb = page.locator("main nav").first();
+      await expect(breadcrumb.getByRole("link", { name: "Books", exact: true })).toBeVisible();
       await expect(
         breadcrumb.getByText("The Big Feelings Cloud")
       ).toBeVisible();
 
       // Click Books breadcrumb link
-      await breadcrumb.getByRole("link", { name: "Books" }).click();
+      await breadcrumb.getByRole("link", { name: "Books", exact: true }).click();
       await page.waitForURL("**/books");
       expect(page.url()).toContain("/books");
     });

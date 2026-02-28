@@ -81,24 +81,27 @@ test.describe("Activities Page", () => {
   });
 
   test("teacher and parent info cards render", async ({ page }) => {
+    // Scope to main content to avoid footer "For Parents" heading
+    const main = page.locator("main");
+
     // For Teachers card
     await expect(
-      page.getByRole("heading", { name: "For Teachers" })
+      main.getByRole("heading", { name: "For Teachers" })
     ).toBeVisible();
     await expect(
-      page.getByText(/aligned with early learning standards/i)
+      main.getByText(/aligned with early learning standards/i)
     ).toBeVisible();
     await expect(
-      page.getByText(/Request a classroom kit/i)
+      main.getByText(/Request a classroom kit/i)
     ).toBeVisible();
 
     // For Parents card
     await expect(
-      page.getByRole("heading", { name: "For Parents" })
+      main.getByRole("heading", { name: "For Parents" })
     ).toBeVisible();
     await expect(
-      page.getByText(/perfect for rainy days/i)
+      main.getByText(/perfect for rainy days/i)
     ).toBeVisible();
-    await expect(page.getByText(/More activity ideas/i)).toBeVisible();
+    await expect(main.getByText(/More activity ideas/i)).toBeVisible();
   });
 });

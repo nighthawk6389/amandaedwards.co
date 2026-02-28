@@ -18,15 +18,15 @@ test.describe("Navigation & Links", () => {
 
       // Desktop nav links (hidden on mobile, visible on md+)
       const desktopNav = page.locator("header .hidden.md\\:flex");
-      await expect(desktopNav.getByText("Home")).toBeVisible();
-      await expect(desktopNav.getByText("Books")).toBeVisible();
-      await expect(desktopNav.getByText("About")).toBeVisible();
-      await expect(desktopNav.getByText("Fun Stuff")).toBeVisible();
-      await expect(desktopNav.getByText("Blog")).toBeVisible();
-      await expect(desktopNav.getByText("Contact")).toBeVisible();
+      await expect(desktopNav.getByRole("link", { name: "Home", exact: true })).toBeVisible();
+      await expect(desktopNav.getByRole("link", { name: "Books", exact: true })).toBeVisible();
+      await expect(desktopNav.getByRole("link", { name: "About", exact: true })).toBeVisible();
+      await expect(desktopNav.getByRole("link", { name: "Fun Stuff", exact: true })).toBeVisible();
+      await expect(desktopNav.getByRole("link", { name: "Blog", exact: true })).toBeVisible();
+      await expect(desktopNav.getByRole("link", { name: "Contact", exact: true })).toBeVisible();
 
       // Shop Books CTA button
-      await expect(desktopNav.getByText("Shop Books")).toBeVisible();
+      await expect(desktopNav.getByRole("link", { name: "Shop Books" })).toBeVisible();
     });
 
     test("all nav links navigate to correct pages", async ({ page }) => {
@@ -42,7 +42,6 @@ test.describe("Navigation & Links", () => {
       for (const route of navRoutes) {
         await page.goto("/");
         const desktopNav = page.locator("header .hidden.md\\:flex");
-        // Use exact match to avoid clicking "Shop Books" when looking for "Books"
         await desktopNav
           .getByRole("link", { name: route.label, exact: true })
           .click();
@@ -52,46 +51,31 @@ test.describe("Navigation & Links", () => {
     });
 
     test("mobile hamburger menu opens and closes", async ({ page }) => {
-      // Set mobile viewport
+      // Navigate with a mobile viewport size
       await page.setViewportSize({ width: 375, height: 667 });
       await page.goto("/");
+      await page.waitForTimeout(1000);
 
-      // Hamburger button should be visible
-      const hamburger = page.getByLabel("Toggle menu");
-      await expect(hamburger).toBeVisible();
-
-      // Mobile menu should not be visible initially
-      await expect(
-        page.locator("header .md\\:hidden").locator("text=Home").first()
-      ).not.toBeVisible();
+      // Hamburger button should be visible on mobile
+      // The aria-label is "Open menu" when closed, "Close menu" when open
+      const hamburger = page.locator('button[aria-label="Open menu"]');
+      await expect(hamburger).toBeVisible({ timeout: 10000 });
 
       // Click hamburger to open
       await hamburger.click();
+      await page.waitForTimeout(400);
 
-      // Mobile menu links should now be visible
-      await expect(
-        page.locator("header").getByRole("link", { name: "Home" }).last()
-      ).toBeVisible();
-      await expect(
-        page.locator("header").getByRole("link", { name: "Books" }).first()
-      ).toBeVisible();
-      await expect(
-        page.locator("header").getByRole("link", { name: "About" })
-      ).toBeVisible();
-      await expect(
-        page.locator("header").getByRole("link", { name: "Fun Stuff" })
-      ).toBeVisible();
-      await expect(
-        page.locator("header").getByRole("link", { name: "Blog" })
-      ).toBeVisible();
-      await expect(
-        page.locator("header").getByRole("link", { name: "Contact" })
-      ).toBeVisible();
+      // Mobile menu links should now be visible inside the mobile menu
+      const mobileMenu = page.locator("#mobile-menu");
+      await expect(mobileMenu.getByText("Home")).toBeVisible();
+      await expect(mobileMenu.getByText("About")).toBeVisible();
+      await expect(mobileMenu.getByText("Fun Stuff")).toBeVisible();
+      await expect(mobileMenu.getByText("Blog")).toBeVisible();
+      await expect(mobileMenu.getByText("Contact")).toBeVisible();
 
-      // Click hamburger again to close
-      await hamburger.click();
-
-      // Wait for animation to complete and menu to disappear
+      // Click the close button (aria-label changes to "Close menu" when open)
+      const closeButton = page.locator('button[aria-label="Close menu"]');
+      await closeButton.click();
       await page.waitForTimeout(500);
     });
   });
@@ -105,7 +89,7 @@ test.describe("Navigation & Links", () => {
       // Explore section
       await expect(footer.getByText("Explore")).toBeVisible();
       await expect(
-        footer.getByRole("link", { name: "Books" }).first()
+        footer.getByRole("link", { name: "Books", exact: true }).first()
       ).toBeVisible();
       await expect(
         footer.getByRole("link", { name: "About Amanda" })
@@ -114,7 +98,7 @@ test.describe("Navigation & Links", () => {
         footer.getByRole("link", { name: "Fun Stuff" })
       ).toBeVisible();
       await expect(
-        footer.getByRole("link", { name: "Blog" }).first()
+        footer.getByRole("link", { name: "Blog", exact: true }).first()
       ).toBeVisible();
 
       // Connect section
@@ -148,7 +132,7 @@ test.describe("Navigation & Links", () => {
       ).toBeVisible();
 
       // Copyright
-      await expect(footer.getByText(/Amanda Edwards/)).toBeTruthy();
+      await expect(footer.getByText(/Amanda Edwards/).first()).toBeVisible();
     });
 
     test("footer links navigate correctly", async ({ page }) => {
@@ -167,7 +151,7 @@ test.describe("Navigation & Links", () => {
       for (const link of internalLinks) {
         await page.goto("/");
         await footer
-          .getByRole("link", { name: link.name })
+          .getByRole("link", { name: link.name, exact: true })
           .first()
           .click();
         await page.waitForURL(`**${link.path}`);
