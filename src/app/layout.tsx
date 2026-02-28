@@ -3,6 +3,8 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PageTransition } from "@/components/PageTransition";
+import { PlayfulCursor } from "@/components/PlayfulCursor";
+import { KonamiEasterEgg } from "@/components/EasterEgg";
 import { defaultMetadata, personStructuredData, websiteStructuredData } from "@/lib/metadata";
 
 export const metadata: Metadata = defaultMetadata;
@@ -39,6 +41,8 @@ export default function RootLayout({
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
+        <PlayfulCursor />
+        <KonamiEasterEgg />
         <Header />
         <main id="main-content" className="min-h-screen" role="main">
           <PageTransition>{children}</PageTransition>
