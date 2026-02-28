@@ -1,2 +1,2 @@
-# amandaedwards.co-
+# amandaedwards.co
 New site
